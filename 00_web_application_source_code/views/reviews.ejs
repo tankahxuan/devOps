@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer Melts</title>
+  <link rel="icon" href="/SummerMelts/views/images/logo/logoFinal.jpg" type="image/png">
+
+  <!--Font Awesome CSS-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- d3 js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"
+    charset="utf-8"></script>
+  <!--dC Css-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.css" type="text/css" rel="stylesheet">
+
+  <!-- Load dC.Javascript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.9/dc.js"></script>
+
+  <!--For Bootstrap Related JavaScripts-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!--Jquery First, then PoppperJs and bootstrapJS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
+
+
+  <!--Our CSS StyleSheets-->
+  <link rel="stylesheet" href="/SummerMelts/views/css/base.css">
+  <!--Reset StyleSheet-->
+  <link rel="stylesheet" href="/SummerMelts/views/css/main_v1.css">
+  <!--Main StyleSheet-->
+
+
+</head>
+
+<body>
+  <header>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light  fixed-top NavBar mx-auto">
+      <!--Logo-->
+      <a class="navbar-brand" href="home.html">
+        <img src="/SummerMelts/views/images/logo/logo3.jpg" alt="logo" style="width:200px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--Other pages-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item  dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Home
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/SummerMelts/home">Home Page</a>
+              <a class="dropdown-item" href="/SummerMelts/demo">Demo</a>
+
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/SummerMelts/flavours">Flavours</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link " href="/SummerMelts/reviews">Reviews</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Contact us
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"> <i class="fab fa-facebook"></i>&nbsp;Facebook</a>
+              <a class="dropdown-item" href="#"> <i class="fab fa-instagram"></i>&nbsp;Instagram</a>
+              <a class="dropdown-item" href="#"> <i class="fab fa-twitter"></i>&nbsp;Twitter</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Drop us a Message</a>
+            </div>
+          </li>
+
+        </ul>
+
+        <!--Search Bar-->
+        <div class=" form-inline">
+          <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Search">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        <!--Shopping Cart icon-->
+
+        <span class="notification">
+          <div class="dropdown">
+
+            <div class="cart_icon" data-toggle="modal" data-target="#cart"><i class="fas fa-shopping-cart"></i></div>
+            <span class="badge1"><span class='total-count'>0</span></span>
+            <div class="dropdown-menu">
+
+
+            </div>
+
+          </div>
+
+        </span>
+      </div>
+    </nav>
+
+
+  </header>
+  <!-- The Modal for Shopping cart -->
+  <div class=" modal  " id="cart">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="font-size: 1.2em;">Your Shopping Cart</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <table class="show-cart table">
+
+          </table>
+          <div>Total price: $<span class="total-cart"></span></div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a class="btn btn-primary" href="/SummerMelts/views/checkout.html">Checkout</a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <main class="container">
+
+    <!--Customer Review Submisssion-->
+    <div class="container ">
+      <h2>Your Review</h2>
+      <form action="#" id='ReviewForm'>
+
+        <!--Your Information-->
+
+
+        <!--Other Comments-->
+        <fieldset class='messageSpacing'>
+
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" class="form-control" id="name" required >
+          </div>
+
+          <div class="form-group">
+
+            <label class="textarea " for="comment" >Do share with us your Purchase Experiences: </label>
+            <div class="ErrorComment p-2 my-1 alert-danger ">Do type in something! </div>
+            <textarea class="form-control" name="comment" id="comment" cols="30" rows="5" required></textarea>
+
+          </div>
+        </fieldset>
+        <button type='button' id='sumitComment' class="btn btn-info m-1"
+          style="background-color:	rgba(2, 117, 216,0.5);"> Submit</button>
+
+      </form>
+    </div>
+
+    <div class="container mb-3">
+      <h2>Customers' Reviews</h2>
+        <div class="reviews"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <script>
+    $(function () {
+
+      function generate_review(){
+   
+        $.ajax({
+             url: '/SummerMelts/getallReviews',
+              method:'GET',
+              success: function (data) {
+
+                
+                var content =''
+                data = data['doc']
+                if(data.length!=0){
+                  data.forEach(function(x){
+                  content += `<div class="card mt-3">
+                      <div class="card-header reviewTitle">
+                          ${x.name}
+                      </div>
+                      <div class="card-body">
+
+                      <p class="reviewText">${x.review_text}</p>
+                      <p class="reviewDate">
+                        ${x.review_date}
+                        <button class=' ml-2 btn btn-sm btn-danger deleteReviewBtn' id="${x['_id']}" >delete</button>
+                        </p>
+                  
+                      </div>
+                  </div>`
+              })
+              $("div.reviews").html(content);
+                }else{
+                  content =`
+                  <div class="card mt-3">
+                      <div class="card-header reviewTitle">
+                        
+                      </div>
+                      <div class="card-body">
+
+                      <p class="reviewText">No Review to Show</p>
+      
+                  
+                      </div>
+                  </div>
+                  `
+                  $("div.reviews").html(content);
+                }
+              
+ 
+
+
+            $('.deleteReviewBtn').click(function(){
+              review_id = this.id
+              console.log(this.id);
+              $.ajax({
+                type: 'DELETE',
+                url: '/SummerMelts/deleteReview/'+review_id,
+                success: function (res) {
+       
+                            generate_review()
+                        }
+              })
+            })
+
+
+        }
+      })
+      }
+      generate_review()
+
+      $('.deleteReviewBtn').click(function(){
+            console.log(this.id);
+      })
+
+      $('#sumitComment').click(function(){
+        var name = $('#name').val()
+        var comment = $('#comment').val()
+        var date = new Date()
+        date=  date.toISOString().split('T')[0]
+        $.ajax({
+              url: '/SummerMelts/submitReview',
+              method:'POST',
+              data: {
+                  'review_id': name+"_"+date,
+                  'name': name,
+                  'review_text': comment,
+                  'review_date': date,
+      
+              },
+              success: function (res) {
+                            $('#ReviewForm').trigger("reset");
+                            generate_review()
+                        }
+        })
+        console.log(name, comment,date)
+      })
+
+    
+    $('#comment').focus( function () {
+      $(".ResultComment").hide()
+         
+    });
+
+
+      $("textarea#comment").keyup(function(){
+          var comment = $('#comment').val();
+          if (comment !=""){
+            $(".ErrorComment").hide()
+         $("textarea#comment").removeClass('ErrorBorder')
+          }else{
+            $(".ErrorComment").show()
+         $("textarea#comment").addClass('ErrorBorder')
+          }
+         })
+    });
+  </script>
+
+</body>
+
+</html>

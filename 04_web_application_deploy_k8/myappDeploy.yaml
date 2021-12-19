@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: summerapp-backend
+spec:
+ type: LoadBalancer
+ selector:
+   app: summerapp-app
+ ports:
+ - port: 3000
+   targetPort: 3000
+   protocol: 'TCP'
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: summerapp-deployment
+ labels:
+   app: summerapp
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: summerapp-app
+     tier: summerapp-backend
+ template:
+   metadata:
+     labels:
+       app: summerapp-app
+       tier: summerapp-backend
+   spec:
+     containers:
+     - name: summerapp-container
+       image: tankahxuan/summerapp:v1
+       imagePullPolicy: Always
+       ports:
+       - containerPort: 3000
+       env:
+       - name: DATABASE_URI
+         value: 'mongodb://admin:admin123@192.168.56.10:27017/?authSource=admin'

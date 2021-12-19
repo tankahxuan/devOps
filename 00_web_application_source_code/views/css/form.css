@@ -1,0 +1,137 @@
+/*
+   Practical 7A
+   Filename: pc_forms2.css
+
+*/
+
+@charset "utf-8";
+
+@font-face {
+	font-family: Champagne;
+	src: url(cac_champagne.woff) format('woff'),
+	     url(cac_champagne.ttf) format('ttf');
+}
+
+
+/* Form Layout Styles */
+
+form {
+
+    display: block;
+
+ } 
+ 
+ fieldset {
+     background-color: rgb(214, 214, 214);
+    -webkit-flex: 1 1 300px;
+    flex: 1 1 300px; 
+    margin: 10px;  
+ }
+ 
+ div {
+    margin: 5px;
+    width: 100%;
+ }
+ 
+ legend {
+    color: white;
+    background-color: #598f56;
+    box-shadow: 5px 5px 5px white;
+    font-size:1.1em;
+    padding:5px;
+    font-family: Champagne, cursive;
+ }
+ 
+ label {
+    display: inline-block;
+    width: 150px;
+ }
+ label.orderLabel {
+   display: inline-block;
+   width: 100%;
+}
+ label.textarea {
+   display: inline-block;
+   width: 100%;
+}
+ label#agreement {
+
+    width: 75%;
+ }
+ 
+ img[src="pc_sizes.png"] {
+    display: block;
+    margin-left: 135px;
+ }
+ 
+ fieldset#pickupInfo label, fieldset#fetchingInfo label {
+    margin-bottom: 10px;
+    width: 100%;
+ }
+ 
+ textarea {
+    display: block;
+    width: 90%;
+    height: 100px;
+ }
+ 
+ input[type="submit"] {
+    height: 50px;
+    width: 200px;
+ }
+
+ input[type="submit"],  input[type="reset"]{
+   color:white;
+   font-size: 1.3em;
+  background-color: #FBAA7E;
+  font-family: Champagne, cursive;
+  border-radius: 14px;
+  width:30%;
+  height:100%;
+  margin: 0px 30px 20px 10px;
+}
+ 
+ input#sizeBox {
+    width: 240px;
+ }
+ 
+
+ span.minus,span.plus {cursor:pointer; }
+
+ .minus, .plus{
+    width:35px;
+    height:35px;
+    background:#f2f2f2;
+    border-radius:4px;
+    padding:8px 5px 8px 5px;
+    border:1px solid #ddd;
+   display: inline-block;
+   vertical-align: middle;
+   text-align: center;
+ }
+
+ input.order{
+    background-color: rgb(255, 255, 255);
+    height:30px;
+   width: 100px;
+   text-align: center;
+   font-size: 16px;
+      border:1px solid #ddd;
+      border-radius:4px;
+   display: inline-block;
+   vertical-align: middle;
+   margin:0px;
+   padding:0px;
+ } 
+
+
+ input.order[type=number]::-webkit-inner-spin-button, 
+ input.order[type=number]::-webkit-outer-spin-button { 
+   -webkit-appearance: none; 
+   margin: 0; 
+ }
+
+
+#promoPrice, #indivPrice, #totalPrice{
+   font-weight: bold;
+}

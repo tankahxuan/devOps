@@ -1,0 +1,25 @@
+
+/* Validation Styles */
+input:focus, select:focus, textarea:focus {
+
+    border: 1px solid #555;
+    background-color: beige;
+
+ }
+ 
+ input:valid,
+ input:valid,
+ input:valid
+ {
+    background: hsla(100, 90%, 70%, 0.3);
+    
+ }
+ 
+ input:invalid,
+ input:invalid
+ {
+    background: hsla(0, 90%, 70%, 0.3);
+ }
+ 
+
+ 
